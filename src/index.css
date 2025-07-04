@@ -17,13 +17,6 @@
    align-items: center;
   
  }
- .search-input::after{
-  content: "";
-  height: 100%;
-  background-color: rgba(189, 188, 188, 0.872);
-  width: 1px;
-  margin-left: 3px;
- }
  .btn-primary{
   color: white;
   background-color: blue;

@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from '../Components/HeroSection'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faBoltLightning, faChevronRight, faCoins, faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import Card from '../Components/Card'
 
 const HomePage = () => {
   return (
@@ -100,6 +101,27 @@ const HomePage = () => {
           </div>
         </div>
        </div>
+       <br />
+       <div className=' py-[30px] px-[230px] text-center'>
+          <h1 className='font-bold text-4xl'>Nos itinéraires bus les plus en vogue</h1>
+          <div className='mt-12 flex gap-7'>
+            <Card imageUrl="/assets/default/city-1.jpg" driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
+            <Card imageUrl="/assets/default/city-1.jpg" driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
+            <Card imageUrl="/assets/default/city-1.jpg"  driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
+          </div>
+       </div>
+
+      <div className='mt-[100px] flex gap-[20px] px-[230px]'>
+        <img src="/assets/default/map-cameroon.png"  alt=""  className='w-1/2 rounded-2xl'/>
+        <div className='px-[20px] py-[100px] w-1/2'>
+            <h2 className='font-bold text-2xl mb-7 '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores maxime fugit et temporibus iure error eaque eos officia, repellendus illo ducimus, at in quas veniam dolorem asperiores, voluptatibus molestiae quo architecto iste! Earum, iusto!</p>
+       <br />
+        <center>
+          <button className='btn-primary px-[20px] py-[10px] rounded-full cursor-pointer'>en Savoir plus</button>
+        </center>
+        </div>
+      </div>
     </>
   )
 }

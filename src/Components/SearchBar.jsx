@@ -12,16 +12,26 @@ const SearchBar = () => {
             <FontAwesomeIcon icon={faLocation} className='text-2xl mt-4'/>
             <input type="text" placeholder='Depart' className='h-[100%] text-center' />
         </div>
+        <div className='h-full p-4'>
+        <div className='w-[1px] mx-2  bg-gray-300 h-[100%]'></div>
+        </div>
         <div className='relative hover:bg-gray-200 rounded-xl p-[10px] w-full flex gap-1 search-input
     
         '>
             <FontAwesomeIcon icon={faLocation} className='text-2xl mt-4'/>
             <input type="text" placeholder='Depart' className='h-[100%] text-center' />
         </div>
+
+        <div className='h-full p-4'>
+        <div className='w-[1px] mx-2  bg-gray-300 h-[100%]'></div>
+        </div>
         <div className='p-[10px]'>
            <DatePicker label="choisir un jour" />
         </div>
        
+        <div className='h-full p-4'>
+        <div className='w-[1px] mx-2  bg-gray-300 h-[100%]'></div>
+        </div>
         <div className='relative ml-4 hover:bg-gray-200 rounded-xl w-full p-[10px] flex gap-1 
     
         '>
