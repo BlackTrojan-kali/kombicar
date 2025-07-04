@@ -105,9 +105,9 @@ const HomePage = () => {
        <div className=' py-[30px] px-[230px] text-center'>
           <h1 className='font-bold text-4xl'>Nos itinéraires bus les plus en vogue</h1>
           <div className='mt-12 flex gap-7'>
-            <Card imageUrl="/assets/default/city-1.jpg" driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
-            <Card imageUrl="/assets/default/city-1.jpg" driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
-            <Card imageUrl="/assets/default/city-1.jpg"  driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
+            <Card imageUrl="/assets/default/city-1.jpg" trajets={45} distance={500} driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
+            <Card imageUrl="/assets/default/city-1.jpg" trajets={45} distance={500} driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
+            <Card imageUrl="/assets/default/city-1.jpg" trajets={45} distance={500}  driver="yassine" depart="Yaounde" arrivee="Douala" prix={400}/>
           </div>
        </div>
 

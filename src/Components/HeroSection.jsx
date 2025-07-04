@@ -7,7 +7,10 @@ const HeroSection = () => {
   return (
 
     <div className='hero-section py-[10px] px-[160px] relative'>
-      <h1 className='text-white font-bold mt-[100px] text-4xl'>Bienvenue sur Kombicar Selectionnez votre trajet</h1>
+      <center>
+      <img src="/assets/default/logo_full.png" className='w-[200px]  mt-[100px]' alt="" />
+      </center>
+      <h1 className='text-white font-bold text-4xl'>Bienvenue sur Kombicar Selectionnez votre trajet</h1>
   <div>
     <SearchBar/>
   </div>
