@@ -5,7 +5,7 @@ import React from 'react'
 const Header = () => {
   return (
     <header className='fixed z-10 w-full px-[160px] py-[20px] text-blue-500 bg-white flex gap-[20px]'>
-        <h1 className='text-2xl'>Kombicar</h1>
+      <img src="/assets/default/logo_full.png" className='w-[80px]' alt="" />
         <div className='flex justify-between w-full '>
             <nav className='flex gap-[15px]  font-bold mt-[5px]'>
                 <a href="">Covoiturage</a>
