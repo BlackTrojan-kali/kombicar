@@ -1,8 +1,11 @@
 import React from 'react'
+import HeroSection from '../Components/HeroSection'
 
 const HomePage = () => {
   return (
-    <div className='hero-section py-[10px] px-[200px]'>HomePage</div>
+    <>
+    <HeroSection/>
+    </>
   )
 }
 

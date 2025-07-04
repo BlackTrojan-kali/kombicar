@@ -1,9 +1,26 @@
 @import "tailwindcss";
 @layer base{
- 
+ input:active{
+  border: none;
+ }
 }
 @layer components{
-
+ .hero-section{
+   background-image: url("./assets/default/carsharing-happy-black-woman.jpg");
+   height: 50vh;
+   background-position: center;
+   background-size: cover;
+   text-align: center;
+   align-items: center;
+  
+ }
+ .search-input::after{
+  content: "";
+  height: 100%;
+  background-color: rgba(189, 188, 188, 0.872);
+  width: 1px;
+  margin-left: 3px;
+ }
 }
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -21,31 +38,10 @@
 }
 
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background: linear-gradient(to right,rgba(114, 173, 215, 0.401) ,rgba(159, 218, 124, 0.401));
-  }
-  button {
-    background-color: #f9f9f9;
+    background: linear-gradient(to right,rgba(114, 173, 215, 0.233) ,rgba(159, 218, 124, 0.238));
   }
 }
