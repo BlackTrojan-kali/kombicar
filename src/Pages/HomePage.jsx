@@ -4,6 +4,7 @@ import HeroSection from '../Components/HeroSection'
 const HomePage = () => {
   return (
     <>
+    <div className='pt-[75px]'></div>
     <HeroSection/>
     </>
   )

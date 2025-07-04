@@ -19,7 +19,7 @@ const SearchBar = () => {
             <input type="text" placeholder='Depart' className='h-[100%] text-center' />
         </div>
         <div className='p-[10px]'>
-           <DatePicker label="Basic date picker" />
+           <DatePicker label="choisir un jour" />
         </div>
        
         <div className='relative ml-4 hover:bg-gray-200 rounded-xl p-[10px] flex gap-1 
