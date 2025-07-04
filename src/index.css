@@ -55,6 +55,6 @@
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background: linear-gradient(to right,rgba(114, 173, 215, 0.096) ,rgba(159, 218, 124, 0.101));
+    background: linear-gradient(to right,rgba(19, 46, 96, 0.092),white ,rgba(223, 237, 67, 0.264));
   }
 }
