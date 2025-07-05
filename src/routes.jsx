@@ -4,6 +4,7 @@ import HomePage from './Pages/HomePage'
 import DefaultLayout from './Layouts/DefaultLayout'
 import Register from './Pages/auth/Register'
 import SignIn from './Pages/auth/SignIn'
+import CarSharing from './Pages/CarSharing'
 
 const Routes = () => {
   const route = useRoutes([
@@ -15,6 +16,10 @@ const Routes = () => {
           path:"/",
           element:<HomePage/>
         },
+        {
+          path:"/carsharing",
+          element:<CarSharing/>
+        }
       ]
     },
 

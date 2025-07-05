@@ -14,7 +14,7 @@ const Header = () => {
       <Link to="/"><img src="/assets/default/logo_full.png" className='w-[80px]' alt="" /></Link>
         <div className='flex justify-between w-full '>
             <nav className='flex gap-[17px] text-xl  font-bold mt-[5px]'>
-                <a href="">Covoiturage</a>
+                <Link to="/carsharing">Covoiturage</Link>
                 <a href="">Vtc</a>
             </nav>
             <nav className='flex gap-[15px] text-xl mt-[5px]'>

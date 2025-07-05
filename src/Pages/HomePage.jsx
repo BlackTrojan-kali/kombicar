@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <>
     <div className='pt-[75px]'></div>
-    <HeroSection/>
+    <HeroSection label="Bienvenue sur Kombicar Selectionnez votre trajet"/>
     <main className='pt-24 mt-[250px] lg:mt-0'>
       <div  className='w-full justify-between flex flex-col md:flex-row gap-[20px] align-middle text-start'>
       <div className='md:w-[350px]'>
