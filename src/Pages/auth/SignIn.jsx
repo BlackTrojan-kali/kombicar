@@ -139,7 +139,6 @@ export default function SignIn() {
               <input
                 placeholder="*******"
                 type="text"
-                value={form.password}
                 required={true}
                 className="formInput"
               />

@@ -31,7 +31,7 @@ const Header = () => {
             </nav>
         </div>  
         </header>
-        <div className={ dropDownActive ? "dropHeaderActive w-[450px] flex flex-col": "dropHeader w-[450px] flex flex-col"}>
+        <div className={ dropDownActive ? "dropHeaderActive": "dropHeader"}>
           <Link to="/signin" className='py-[10px] px-[30px] hover:bg-gray-300 w-full flex justify-between'>
             <p>Connexion</p>
             <FontAwesomeIcon icon={faChevronRight} className='mt-1'/>

@@ -173,7 +173,6 @@ export default function Register() {
               <input
                 placeholder="*******"
                 type="text"
-                value={form.password}
                 required={true}
                 className="formInput"
               />
