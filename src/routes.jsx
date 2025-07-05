@@ -2,6 +2,8 @@ import React from 'react'
 import { useRoutes } from 'react-router'
 import HomePage from './Pages/HomePage'
 import DefaultLayout from './Layouts/DefaultLayout'
+import Register from './Pages/auth/Register'
+import SignIn from './Pages/auth/SignIn'
 
 const Routes = () => {
   const route = useRoutes([
@@ -12,9 +14,18 @@ const Routes = () => {
         {
           path:"/",
           element:<HomePage/>
-        }
+        },
       ]
-    }
+    },
+
+        {
+          path:"/register",
+
+          element:<Register/>
+        },{
+          path:"/signin",
+          element:<SignIn/>
+        }
   ])
   return route
 }

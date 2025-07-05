@@ -11,7 +11,7 @@ const Card = (props) => {
     const distance = props.distance
     const trajets = props.trajets
   return (
-    <div className='rounded-xl w-[340px] overflow-hidden transition-all text-start duration-200 relative shadow-md bg-white'>
+    <div className='rounded-xl w-[340px] text-slate-800 overflow-hidden transition-all text-start duration-200 relative shadow-md bg-white'>
         <img src={imageUrl} alt={imageUrl} className='w-full h-[180px] object-cover hover:scale-105' />
         <div className="p-8">
             <div className='font-bold text-2xl flex gap-4'>

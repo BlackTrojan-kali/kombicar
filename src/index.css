@@ -3,11 +3,15 @@
  input:active{
   border: none;
  }
+ header{
+  @apply bg-slate-800
+ }
  main{
-  @apply px-[230px] 
+  @apply px-[20px] lg:px-[230px] 
  }
 }
 @layer components{
+  
  .hero-section{
    background-image: url("../public/assets/default/carsharing-happy-black-woman.jpg");
    height: 50vh;
@@ -19,12 +23,12 @@
  }
  .btn-primary{
   color: white;
-  background-color: blue;
+  background-color: rgb(60, 127, 208);
   font-weight: bold;
 
  }
  .mini-card{
-  @apply bg-white rounded-2xl p-6 w-[300px] flex justify-between mt-4 cursor-pointer
+  @apply bg-white rounded-2xl p-6 w-full lg:w-[300px] flex justify-between mt-4 cursor-pointer text-slate-800 
  }
  .mini-card div{
   @apply flex gap-2
@@ -32,7 +36,30 @@
  .miniCard-grid{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap:10px
+  gap:10px;
+
+ }
+ .dropHeader{
+  position: fixed;
+  transform: translateY(-100px);
+  background-color: white;
+  z-index: 1;
+  right: 160px;
+  transform: all 0.25s ease-out;
+  
+ }
+ .dropHeaderActive{
+
+  position: fixed;
+  transform: translateY(80px);
+  background-color: white;
+  z-index: 1;
+  right: 160px;
+  transform: all 0.25s ease-out;
+ }
+ /*FORM INPUT STYLE */
+ .formInput{
+  @apply w-full p-2 border border-gray-300 rounded-md;
  }
 }
 :root {
@@ -57,4 +84,14 @@
     color: #213547;
     background: linear-gradient(to right,rgba(19, 46, 96, 0.092),white ,rgba(223, 237, 67, 0.264));
   }
+  header{
+
+  background-color: white;
+  }
+}
+@media screen and (max-width:800px) {
+  .miniCard-grid{
+    display: flex;
+    flex-direction:column;
+  } 
 }
