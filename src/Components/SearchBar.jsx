@@ -39,7 +39,7 @@ const SearchBar = () => {
             <input type="number" min="0" max="10" placeholder='Personnes' className='lg:h-[100%] w-[100%]  text-center' />
         </div>
 </div>
-        <button className='h-[100%] lg:w-[10%] px-[10px] py-[30px] -left-[10%] rounded-b-xl lg:rounded-bl-none lg:rounded-r-xl text-white font-bold bg-green-400'>Rechercher</button>
+        <button className='h-[100%] lg:w-[10%] px-[10px] py-[35px] -left-[10%] rounded-b-xl lg:rounded-bl-none lg:rounded-r-xl text-white font-bold bg-green-400'>Rechercher</button>
      </form>
      
   )

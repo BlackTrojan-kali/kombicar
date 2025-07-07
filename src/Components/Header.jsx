@@ -15,7 +15,7 @@ const Header = () => {
         <div className='flex justify-between w-full '>
             <nav className='flex gap-[17px] text-xl  font-bold mt-[5px]'>
                 <Link to="/carsharing">Covoiturage</Link>
-                <a href="">Vtc</a>
+                <Link to="/vtc">Vtc</Link>
             </nav>
             <nav className='flex gap-[15px] text-xl mt-[5px]'>
                 <a href="">

@@ -42,7 +42,7 @@
  .dropHeader{
   position: fixed;
   transform: translateY(-100px);
-  background-color: white;
+  background-color:#213547;
   z-index: 1;
   right: 160px;
   transform: all 0.25s ease-out;
@@ -53,7 +53,7 @@
 
   position: fixed;
   transform: translateY(80px);
-  background-color: white;
+  background-color: #213547;
   z-index: 1;
   right: 160px;
   @apply w-[400px]
@@ -85,6 +85,10 @@
     color: #213547;
     background: linear-gradient(to right,rgba(19, 46, 96, 0.092),white ,rgba(223, 237, 67, 0.264));
   }
+   .dropHeader, .dropHeaderActive{
+  background-color: white;
+  
+ }
   header{
 
   background-color: white;
