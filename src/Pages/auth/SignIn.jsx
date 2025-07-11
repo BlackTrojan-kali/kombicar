@@ -98,7 +98,7 @@ export default function SignIn() {
                   </g>{" "}
                 </g>{" "}
               </svg>
-              <span>Inscription avec Google</span>
+              <span>Connexion avec Google</span>
             </button>
           </div>
           <div className="py-4 text-center font-bold">Ou</div>
@@ -112,7 +112,7 @@ export default function SignIn() {
               />
             </picture>
           </div>
-          <h2 className="text-3xl font-bold text-center">Inscription</h2>
+          <h2 className="text-3xl font-bold text-center">Connexion</h2>
           <form
             onSubmit={onSubmit}
             className="space-y-8 max-w-3xl mx-auto py-10 "

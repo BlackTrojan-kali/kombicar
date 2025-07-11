@@ -1,48 +1,58 @@
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 
-const Card = (props) => {
-    const imageUrl = props.imageUrl
-    const Depart = props.depart 
-    const Arrivee= props.arrivee
-    const prix = props.prix
-    const driver = props.driver
-    const distance = props.distance
-    const trajets = props.trajets
+const Card = ({ imageUrl, depart, arrivee, prix, driver, distance, trajets }) => {
   return (
-    <div className='rounded-xl w-[340px] text-slate-800 overflow-hidden transition-all text-start duration-200 relative shadow-md bg-white'>
-        <img src={imageUrl} alt={imageUrl} className='w-full h-[180px] object-cover hover:scale-105' />
-        <div className="p-8">
-            <div className='font-bold text-2xl flex gap-4'>
-                <p>{Depart}</p>
-                <FontAwesomeIcon icon={faArrowRight} className='mt-2'/>
-                <p>{Arrivee}</p>
-            </div>
-            <div className='flex flex-col text-start mt-4'>
-                <b className='text-sm text-gray-400'>des</b>
-                <b className='text-2xl'>{prix} XAF</b>
-            </div>
-            <button className='btn-primary px-3 py-2 absolute top-[44%] right-8 font-bold rounded-full text-2xl'>
-                <FontAwesomeIcon icon={faArrowRight}/></button>
-            <div className='h-[2px] w-full bg-gray-300 mt-16'></div>
-            <div className='mt-4 text-xl'>
+    <div className='relative w-[340px] bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02] cursor-pointer'>
+      {/* Image Section */}
+      <img
+        src={imageUrl}
+        alt={`${depart} to ${arrivee}`}
+        className='w-full h-[180px] object-cover transition-transform duration-300 hover:scale-105'
+      />
 
-                <b className='text-sm text-gray-400'>chauffeur</b>
-                <p>{driver}</p></div>
-        
-            <div className='mt-4 text-xl'>
-                <b className='text-sm text-gray-400'>Distance</b>
-                <p>{distance} km</p></div>
-    
-            <div className='mt-4 text-xl'>
-                <b className='text-sm text-gray-400'>Trajets effectues</b>
-                <p>{trajets}</p></div>
-    
+      {/* Main Content Area */}
+      <div className='p-6'>
+        {/* Departure and Arrival */}
+        <div className='flex items-center justify-between text-gray-800 mb-4'>
+          <p className='font-bold text-2xl'>{depart}</p>
+          <FontAwesomeIcon icon={faArrowRight} className='text-xl text-gray-500 mx-2' />
+          <p className='font-bold text-2xl'>{arrivee}</p>
         </div>
-        
-    </div>
-  )
-}
 
-export default Card
+        {/* Price and View Details Button */}
+        <div className='flex items-end justify-between mt-4'>
+          <div>
+            <b className='text-sm text-gray-500 block'>Prix à partir de</b>
+            <b className='text-3xl font-extrabold text-green-600'>{prix} XAF</b>
+          </div>
+          <button className='absolute bottom-[100px] right-6 p-3 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-colors duration-200'>
+            <FontAwesomeIcon icon={faArrowRight} className='text-xl' />
+          </button>
+        </div>
+
+        {/* Separator Line */}
+        <div className='h-[1px] w-full bg-gray-200 mt-8 mb-4'></div>
+
+        {/* Driver, Distance, and Trajets */}
+        <div className='grid grid-cols-2 gap-4 text-gray-700'>
+          <div>
+            <b className='text-xs text-gray-500 block mb-1'>Chauffeur</b>
+            <p className='text-lg font-semibold'>{driver}</p>
+          </div>
+          <div>
+            <b className='text-xs text-gray-500 block mb-1'>Distance</b>
+            <p className='text-lg font-semibold'>{distance} km</p>
+          </div>
+          <div className='col-span-2'> {/* This will take full width on a 2-column grid */}
+            <b className='text-xs text-gray-500 block mb-1'>Trajets effectués</b>
+            <p className='text-lg font-semibold'>{trajets}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Card;

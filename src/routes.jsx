@@ -6,6 +6,7 @@ import Register from './Pages/auth/Register'
 import SignIn from './Pages/auth/SignIn'
 import CarSharing from './Pages/CarSharing'
 import Vtc from './Pages/Vtc'
+import FilteredResults from './Pages/FilteredResults'
 
 const Routes = () => {
   const route = useRoutes([
@@ -24,6 +25,10 @@ const Routes = () => {
         {
           path:"/vtc",
           element:<Vtc/>
+        },
+        {
+          path:"/filtered-results",
+          element:<FilteredResults/>
         }
       ]
     },
