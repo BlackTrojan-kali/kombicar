@@ -1,68 +1,85 @@
 @import "tailwindcss";
-@layer base{
- input:active{
-  border: none;
- }
- header{
-  @apply bg-slate-800
- }
- main{
-  @apply px-[20px] lg:px-[230px] 
- }
+
+@layer base {
+  /* Reset input active border for consistency across browsers */
+  input:active,
+  input:focus { /* Added :focus to ensure border is removed when focused */
+    outline: none; /* Remove default outline */
+    border: none; /* Ensure no border on active/focus state */
+  }
+
+  header {
+    /* Apply Tailwind classes directly for header background */
+    @apply bg-slate-800;
+  }
+
+  main {
+    /* Apply responsive horizontal padding using Tailwind's default system */
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24; /* Adjusted for more flexible responsiveness */
+  }
 }
-@layer components{
-  
- .hero-section{
-   background-image: url("../public/assets/default/carsharing-6.jpg");
-   height: 50vh;
-   background-position: center;
-   background-size: cover;
-   text-align: center;
-   align-items: center;
-  
- }
- .btn-primary{
-  color: white;
-  background-color: rgb(60, 127, 208);
-  font-weight: bold;
 
- }
- .mini-card{
-  @apply bg-white rounded-2xl p-6 w-full lg:w-[300px] flex justify-between mt-4 cursor-pointer text-slate-800 
- }
- .mini-card div{
-  @apply flex gap-2
- }
- .miniCard-grid{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:10px;
+@layer components {
+  /* Hero Section Background */
+  .hero-background {
+    /* Prefer Tailwind's background utilities if possible, or keep as custom if image path is dynamic */
+    background-image: url("../public/assets/default/carsharing-6.jpg");
+    background-position: center;
+    background-size: cover;
+    @apply relative; /* Added relative as HeroSection is often a parent for absolute elements */
+  }
 
- }
- .dropHeader{
-  position: fixed;
-  transform: translateY(-100px);
-  background-color:#213547;
-  z-index: 1;
-  right: 160px;
-  transform: all 0.25s ease-out;
-  
-  @apply w-[400px]
- }
- .dropHeaderActive{
+  /* Primary Button Style */
+  .btn-primary {
+    /* Consolidate common button styles using @apply */
+    @apply text-white bg-blue-600 font-bold py-3 px-6 rounded-full cursor-pointer
+           hover:bg-blue-700 transition-colors duration-300 ease-in-out; /* Added hover, transition, and better padding/radius */
+  }
 
-  position: fixed;
-  transform: translateY(80px);
-  background-color: #213547;
-  z-index: 1;
-  right: 160px;
-  @apply w-[400px]
- }
- /*FORM INPUT STYLE */
- .formInput{
-  @apply w-full p-2 border border-gray-300 rounded-md;
- }
+  /* Mini Card Grid Item */
+  .mini-card {
+    /* Adjusted width to be fully responsive by default, then controlled by grid parent */
+    @apply bg-white rounded-2xl p-6 w-full flex justify-between mt-4 cursor-pointer text-slate-800
+           shadow-md hover:bg-gray-50 transition-colors duration-200; /* Added shadow and hover for consistency */
+  }
+
+  /* Mini Card Inner Div */
+  .mini-card div {
+    @apply flex gap-2 items-center; /* Added items-center for vertical alignment */
+  }
+
+  /* Mini Card Grid Container */
+  .miniCard-grid {
+    /* This class is better managed directly in JSX with Tailwind's grid utilities */
+    /* Example: <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> */
+    /* If you still need this for some reason, ensure it's responsive */
+  }
+
+  /* Dropdown Header (Fixed Position) */
+  /* CAUTION: Fixed positioning and explicit right/width values can be tricky with responsiveness */
+  .dropHeader {
+    @apply fixed transform -translate-y-full /* Use -translate-y-full for 100% hide */
+           bg-slate-700 /* Slightly darker than header for distinction, or match header bg */
+           z-50 right-4 lg:right-40 /* Use responsive right values */
+           w-80 md:w-96 lg:w-[400px] /* Responsive width */
+           transition-transform duration-300 ease-out; /* Proper transition syntax */
+  }
+
+  .dropHeaderActive {
+    @apply fixed transform translate-y-20 /* Adjust this value as needed, 80px might be too specific */
+           bg-slate-700 /* Match .dropHeader background */
+           z-50 right-4 lg:right-40 /* Match .dropHeader right values */
+           w-80 md:w-96 lg:w-[400px] /* Responsive width */
+           transition-transform duration-300 ease-out; /* Proper transition syntax */
+  }
+
+  /* Form Input Style */
+  .formInput {
+    @apply w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent; /* Added focus styles for better UX */
+  }
 }
+
+/* Root (HTML/Body) Styling */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -70,7 +87,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(to right,rgba(21, 21, 30, 0.68) ,rgba(23, 30, 19, 0.646));
+  /* Use Tailwind colors or define custom colors in tailwind.config.js */
+  background: linear-gradient(to right, rgba(21, 21, 30, 0.68), rgba(23, 30, 19, 0.646));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -78,25 +96,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
+/* Light Mode Styling */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background: linear-gradient(to right,rgba(19, 46, 96, 0.092),white ,rgba(223, 237, 67, 0.264));
+    /* Use Tailwind colors for consistency, e.g., bg-gradient-to-r from-blue-50 to white to-yellow-100 */
+    background: linear-gradient(to right, rgba(19, 46, 96, 0.092), white, rgba(223, 237, 67, 0.264));
   }
-   .dropHeader, .dropHeaderActive{
-  background-color: white;
-  
- }
-  header{
 
-  background-color: white;
+  .dropHeader,
+  .dropHeaderActive {
+    @apply bg-white; /* Apply white background in light mode */
+  }
+
+  header {
+    @apply bg-white; /* Apply white background in light mode */
   }
 }
-@media screen and (max-width:800px) {
-  .miniCard-grid{
-    display: flex;
-    flex-direction:column;
-  } 
+
+/* Responsive adjustments for miniCard-grid if still needed in CSS */
+@media screen and (max-width: 800px) {
+  .miniCard-grid {
+    @apply flex flex-col; /* Use Tailwind's flex utilities */
+  }
 }

@@ -1,48 +1,125 @@
-import { faCalendar, faLocation, faPerson } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import {DatePicker} from "@mui/x-date-pickers/DatePicker"
+import { faCalendarDays, faLocationDot, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from 'react';
+
+// Importations pour DatePicker de MUI
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+
 const SearchBar = () => {
+  const [departure, setDeparture] = useState('');
+  const [destination, setDestination] = useState('');
+  const [date, setDate] = useState(dayjs()); // Initialise avec la date actuelle
+  const [passengers, setPassengers] = useState(1);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({
+      departure,
+      destination,
+      date: date.format('YYYY-MM-DD'), // Format the date for submission
+      passengers,
+    });
+    // Ici, vous feriez votre logique de recherche (appel API, redirection, etc.)
+    // Exemple de redirection (décommenter pour tester) :
+    // window.location.href = `/search?departure=${departure}&destination=${destination}&date=${date.format('YYYY-MM-DD')}&passengers=${passengers}`;
+  };
+
   return (
-     <form action="" className='text-slate-800 w-[90%] -bottom-[300px] left-[5%]  lg:-bottom-[30px] absolute flex flex-col lg:flex-row'>
-      <div className='w-full lg:w-[1180px]  p-[5px]  rounded-t-xl lg:rounded-r-none md:rounded-l-xl flex flex-col lg:flex-row bg-white'>
-        <div className='relative hover:bg-gray-200 rounded-xl p-[10px] flex gap-1 search-input
-        w-full
-        '>
-            <FontAwesomeIcon icon={faLocation} className='text-2xl mt-4'/>
-            <input type="text" placeholder='Depart' className='lg:h-[100%] w-[100%] text-center' />
-        </div>
-        <div className='h-full p-4'>
-        <div className='w-[1px] mx-2  bg-gray-300 h-[100%]'></div>
-        </div>
-        <div className='relative hover:bg-gray-200 rounded-xl p-[10px] w-full flex gap-1 search-input
-    
-        '>
-            <FontAwesomeIcon icon={faLocation} className='text-2xl mt-4'/>
-            <input type="text" placeholder='Depart' className='lg:h-[100%] w-[100%] text-center' />
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      {/* Conteneur principal du formulaire */}
+      <form
+        onSubmit={handleSubmit}
+        className='absolute -bottom-16 lg:bottom-0 left-1/2 -translate-x-1/2
+                   w-[95%] sm:w-[90%] md:w-[85%] lg:w-[calc(100%-4rem)] 
+                   flex flex-col lg:flex-row items-stretch
+                   bg-white rounded-xl shadow-lg overflow-hidden
+                   text-gray-800 border border-gray-100'
+      >
+        {/* Champs de recherche */}
+        <div className='flex flex-col lg:flex-row w-full lg:flex-grow'> {/* Changed to lg:flex-grow for better distribution */}
+          {/* Champ Départ */}
+          <div className='relative flex items-center p-3 sm:p-4 border-b lg:border-b-0 lg:border-r border-gray-200 hover:bg-gray-50 flex-grow cursor-pointer'> {/* Added cursor-pointer */}
+            <FontAwesomeIcon icon={faLocationDot} className='text-xl text-blue-500 mr-3' />
+            <input
+              type="text"
+              placeholder='Départ'
+              value={departure}
+              onChange={(e) => setDeparture(e.target.value)}
+              className='flex-grow outline-none bg-transparent placeholder-gray-500 text-lg py-1' // Added py-1 for consistent height
+              aria-label="Lieu de départ"
+            />
+          </div>
+
+          {/* Champ Destination */}
+          <div className='relative flex items-center p-3 sm:p-4 border-b lg:border-b-0 lg:border-r border-gray-200 hover:bg-gray-50 flex-grow cursor-pointer'>
+            <FontAwesomeIcon icon={faLocationDot} className='text-xl text-green-500 mr-3' />
+            <input
+              type="text"
+              placeholder='Destination'
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              className='flex-grow outline-none bg-transparent placeholder-gray-500 text-lg py-1' // Added py-1
+              aria-label="Lieu de destination"
+            />
+          </div>
+
+          {/* Champ Date */}
+          <div className='relative flex items-center p-3 sm:p-4 border-b lg:border-b-0 lg:border-r border-gray-200 hover:bg-gray-50 flex-grow cursor-pointer'>
+            <FontAwesomeIcon icon={faCalendarDays} className='text-xl text-purple-500 mr-3' />
+            <DatePicker
+              label="Date"
+              value={date}
+              onChange={(newValue) => setDate(newValue)}
+              className='flex-grow w-full' // Added w-full to ensure it takes available space
+              slotProps={{
+                textField: {
+                  variant: 'standard',
+                  InputProps: {
+                    disableUnderline: true,
+                    className: 'text-lg',
+                  },
+                  sx: { // Use sx for custom styling on MUI components
+                    '& .MuiInputBase-input': { // Target the actual input element
+                      padding: '8px 0 !important', // Ensure consistent vertical padding
+                    },
+                  },
+                },
+              }}
+            />
+          </div>
+
+          {/* Champ Nombre de personnes */}
+          <div className='relative flex items-center p-3 sm:p-4 hover:bg-gray-50 flex-grow cursor-pointer'>
+            <FontAwesomeIcon icon={faUserGroup} className='text-xl text-orange-500 mr-3' />
+            <input
+              type="number"
+              min="1"
+              max="10"
+              placeholder='Nb Personnes'
+              value={passengers}
+              onChange={(e) => setPassengers(Number(e.target.value))}
+              className='flex-grow outline-none bg-transparent placeholder-gray-500 text-lg py-1' // Added py-1
+              aria-label="Nombre de personnes"
+            />
+          </div>
         </div>
 
-        <div className='h-full p-4'>
-        <div className='w-[1px] mx-2  bg-gray-300 h-[100%]'></div>
-        </div>
-        <div className='p-[10px]'>
-           <DatePicker label="choisir un jour" />
-        </div>
-       
-        <div className='h-full p-4'>
-        <div className='w-[1px] mx-2  bg-gray-300 h-[100%]'></div>
-        </div>
-        <div className='relative md:ml-4 hover:bg-gray-200 rounded-xl w-full p-[10px] flex gap-1 
-    
-        '>
-            <FontAwesomeIcon icon={faPerson} className='text-2xl mt-4'/>
-            <input type="number" min="0" max="10" placeholder='Personnes' className='lg:h-[100%] w-[100%]  text-center' />
-        </div>
-</div>
-        <button className='h-[100%] lg:w-[10%] px-[10px] py-[35px] -left-[10%] rounded-b-xl lg:rounded-bl-none lg:rounded-r-xl text-white font-bold bg-green-400'>Rechercher</button>
-     </form>
-     
-  )
-}
+        {/* Bouton de recherche */}
+        <button
+          type="submit"
+          className='w-full lg:w-32 bg-green-500 hover:bg-green-600 text-white font-bold
+                     py-4 lg:py-0 px-6 rounded-b-xl lg:rounded-bl-none lg:rounded-r-xl
+                     flex-shrink-0 transition-colors duration-200
+                     flex items-center justify-center' // Added flexbox for vertical centering of text if py-0 is used
+        >
+          Rechercher
+        </button>
+      </form>
+    </LocalizationProvider>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

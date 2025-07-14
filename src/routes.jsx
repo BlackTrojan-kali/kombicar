@@ -7,6 +7,10 @@ import SignIn from './Pages/auth/SignIn'
 import CarSharing from './Pages/CarSharing'
 import Vtc from './Pages/Vtc'
 import FilteredResults from './Pages/FilteredResults'
+import TripDetails from './Pages/TripDetails'
+import PostRidePage from './Pages/PostRide'
+import ProfileDetailsPage from './Pages/UserProfile'
+import Taxi from './Pages/Vtc'
 
 const Routes = () => {
   const route = useRoutes([
@@ -23,12 +27,24 @@ const Routes = () => {
           element:<CarSharing/>
         },
         {
-          path:"/vtc",
-          element:<Vtc/>
+          path:"/taxi",
+          element:<Taxi/>
         },
         {
           path:"/filtered-results",
           element:<FilteredResults/>
+        },
+        {
+          path:"/trip-details",
+          element:<TripDetails/>
+        },
+        {
+          path:"/post-rides",
+          element:<PostRidePage/>
+        },
+        {
+          path:"/user-profile",
+          element:<ProfileDetailsPage/>
         }
       ]
     },

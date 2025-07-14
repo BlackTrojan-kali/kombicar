@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faCalendarAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'; // Updated icons
 import ResultSidebar from '../Components/navigation/ResultSideBar';
 import ResultCard from '../Components/ui/Cards/resultCard';
+import { Link } from 'react-router';
 
 const FilteredResults = () => {
   // Mock data for demonstration - in a real app, this would come from an API call
@@ -112,8 +113,8 @@ const FilteredResults = () => {
           <div className='flex flex-col gap-6'>
             {trajets.length > 0 ? (
               trajets.map((trajet) => (
-                <ResultCard
-                  key={trajet.id} // Important for lists in React
+            <Link to="/trip-details" key={trajet.id} >    <ResultCard
+                  
                   depart={trajet.depart}
                   arrivee={trajet.arrivee}
                   heureDepart={trajet.heureDepart}
@@ -122,6 +123,7 @@ const FilteredResults = () => {
                   chauffeur={trajet.chauffeur}
                   details={trajet.details} // Pass additional details if ResultCard supports it
                 />
+                </Link>
               ))
             ) : (
               <div className='text-center text-gray-600 p-10 bg-white rounded-lg shadow-md'>

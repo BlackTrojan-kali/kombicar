@@ -1,8 +1,8 @@
 import React from 'react';
 import HeroSection from '../Components/HeroSection';
+import Card from '../Components/Card'; // Assuming Card component is well-styled with Tailwind
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faBoltLightning, faCoins, faUserShield, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
-import Card from '../Components/Card';
+import { faArrowRight, faBoltLightning, faCoins, faUserShield, faMapLocationDot, faCar, faTaxi } from '@fortawesome/free-solid-svg-icons'; // Added faCar and faTaxi for clarity
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,160 +15,158 @@ import 'swiper/css/pagination';
 // Import required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
-const Vtc = () => {
+const Taxi = () => { // Renamed component from Vtc to Taxi for consistency
   return (
     <>
-      {/* Padding for fixed header */}
-      <div className='pt-[75px]'></div>
+      {/* Padding for fixed header - Adjust this value based on your actual header's height */}
+      <div className='pt-[75px] md:pt-[90px] lg:pt-[100px]'></div>
 
-      {/* Hero Section for VTC */}
-      <HeroSection label="VTC : Voyagez avec chauffeur en toute sérénité" showLogo={false} />
+      {/* Hero Section for Taxi */}
+      <HeroSection label="Taxi : Voyagez avec chauffeur en toute sérénité" showLogo={false} />
 
-      {/* Section: Popular VTC Routes (with Swiper) */}
-      <section className='py-20 px-4 lg:px-24 text-center bg-gray-50'> {/* Added light background for contrast */}
-        <h1 className='font-bold text-4xl mb-12 text-gray-800'>Nos itinéraires VTC les plus populaires</h1>
-        <div className='relative'> {/* Added relative for Swiper navigation buttons */}
+      {/* Section: Popular Taxi Routes (with Swiper) */}
+      <section className='py-16 px-4 sm:px-6 lg:px-12 xl:px-24 text-center bg-gray-50'>
+        <h1 className='font-bold text-3xl sm:text-4xl lg:text-5xl mb-12 text-gray-800'>Nos itinéraires Taxi les plus populaires</h1>
+        <div className='relative max-w-7xl mx-auto'> {/* Added max-width and mx-auto for centering */}
           <Swiper
-            // install Swiper modules
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={30} // Space between slides
-            slidesPerView={1} // Default slides per view
-            navigation={{ // Enable navigation arrows
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
               nextEl: '.swiper-button-next-custom',
               prevEl: '.swiper-button-prev-custom',
             }}
-            pagination={{ clickable: true }} // Enable pagination dots
-            scrollbar={{ draggable: true }} // Enable scrollbar
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
             breakpoints={{
-              640: { // When screen width is >= 640px
+              640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
               },
-              1024: { // When screen width is >= 1024px
+              1024: {
                 slidesPerView: 3,
                 spaceBetween: 30,
               },
             }}
-            className="mySwiper pb-12" // Added padding bottom for pagination dots
+            className="mySwiper pb-12"
           >
             <SwiperSlide>
-              <Card imageUrl="/assets/default/city-1.jpg" trajets={45} distance={500} driver="Jean Dupont" depart="Yaoundé" arrivee="Douala" prix={30000} />
+              <Card imageUrl="https://placehold.co/400x250/007bff/ffffff?text=City+1" trajets={45} distance={500} driver="Jean Dupont" depart="Yaoundé" arrivee="Douala" prix={30000} />
             </SwiperSlide>
             <SwiperSlide>
-              <Card imageUrl="/assets/default/city-2.jpg" trajets={30} distance={400} driver="Marie Curie" depart="Douala" arrivee="Bafoussam" prix={25000} />
+              <Card imageUrl="https://placehold.co/400x250/28a745/ffffff?text=City+2" trajets={30} distance={400} driver="Marie Curie" depart="Douala" arrivee="Bafoussam" prix={25000} />
             </SwiperSlide>
             <SwiperSlide>
-              <Card imageUrl="/assets/default/city-3.jpg" trajets={20} distance={250} driver="Pierre Martin" depart="Yaoundé" arrivee="Kribi" prix={20000} />
+              <Card imageUrl="https://placehold.co/400x250/ffc107/ffffff?text=City+3" trajets={20} distance={250} driver="Pierre Martin" depart="Yaoundé" arrivee="Kribi" prix={20000} />
             </SwiperSlide>
             <SwiperSlide>
-              <Card imageUrl="/assets/default/city-4.jpg" trajets={55} distance={600} driver="Fatima Zahra" depart="Douala" arrivee="Limbe" prix={35000} />
+              <Card imageUrl="https://placehold.co/400x250/dc3545/ffffff?text=City+4" trajets={55} distance={600} driver="Fatima Zahra" depart="Douala" arrivee="Limbe" prix={35000} />
             </SwiperSlide>
           </Swiper>
-          {/* Custom Navigation Arrows */}
-          <div className="swiper-button-prev-custom absolute top-1/2 left-4 -translate-y-1/2 z-10 cursor-pointer bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-200 hidden lg:block">
+          {/* Custom Navigation Arrows (visible on larger screens) */}
+          <div className="swiper-button-prev-custom absolute top-1/2 left-4 -translate-y-1/2 z-10 cursor-pointer bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-200 hidden lg:flex items-center justify-center">
             <FontAwesomeIcon icon={faArrowRight} rotation={180} className='text-xl text-gray-700' />
           </div>
-          <div className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 z-10 cursor-pointer bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-200 hidden lg:block">
+          <div className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 z-10 cursor-pointer bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-200 hidden lg:flex items-center justify-center">
             <FontAwesomeIcon icon={faArrowRight} className='text-xl text-gray-700' />
           </div>
         </div>
       </section>
 
-      <main className='px-4 lg:px-24 py-16'>
+      <main className='px-4 sm:px-6 lg:px-12 xl:px-24 py-16 max-w-7xl mx-auto'> {/* Added max-width and mx-auto */}
 
-        {/* Section: VTC Advantages */}
+        {/* Section: Taxi Advantages */}
         <section className='w-full flex flex-col md:flex-row justify-between gap-8 text-center md:text-left mb-24'>
-          <div className='md:w-1/3 p-4 bg-white rounded-lg shadow-md'>
-            <FontAwesomeIcon icon={faUserShield} className='text-3xl text-blue-600 mb-4' />
-            <h4 className='font-bold text-xl mb-2'>Confort et Sérénité</h4>
-            <p className='text-gray-600'>
+          <div className='md:w-1/3 p-6 bg-white rounded-lg shadow-md flex flex-col items-center'> {/* Added flex-col items-center for icon centering */}
+            <FontAwesomeIcon icon={faUserShield} className='text-4xl text-blue-600 mb-4' />
+            <h4 className='font-bold text-xl mb-2 text-gray-800'>Confort et Sérénité</h4>
+            <p className='text-gray-600 text-base'>
               Voyagez dans des véhicules modernes et bien entretenus, conduits par des chauffeurs professionnels et courtois.
             </p>
           </div>
-          <div className='md:w-1/3 p-4 bg-white rounded-lg shadow-md'>
-            <FontAwesomeIcon icon={faCoins} className='text-3xl text-green-600 mb-4' />
-            <h4 className='font-bold text-xl mb-2'>Tarifs Transparents</h4>
-            <p className='text-gray-600'>
+          <div className='md:w-1/3 p-6 bg-white rounded-lg shadow-md flex flex-col items-center'>
+            <FontAwesomeIcon icon={faCoins} className='text-4xl text-green-600 mb-4' />
+            <h4 className='font-bold text-xl mb-2 text-gray-800'>Tarifs Transparents</h4>
+            <p className='text-gray-600 text-base'>
               Connaissez le prix de votre course à l'avance, sans surprise. Nos tarifs sont clairs et compétitifs.
             </p>
           </div>
-          <div className='md:w-1/3 p-4 bg-white rounded-lg shadow-md'>
-            <FontAwesomeIcon icon={faBoltLightning} className='text-3xl text-yellow-600 mb-4' />
-            <h4 className='font-bold text-xl mb-2'>Service Rapide et Disponible</h4>
-            <p className='text-gray-600'>
-              Réservez votre VTC en quelques clics, disponible 24h/24 et 7j/7 pour tous vos déplacements.
+          <div className='md:w-1/3 p-6 bg-white rounded-lg shadow-md flex flex-col items-center'>
+            <FontAwesomeIcon icon={faBoltLightning} className='text-4xl text-yellow-600 mb-4' />
+            <h4 className='font-bold text-xl mb-2 text-gray-800'>Service Rapide et Disponible</h4>
+            <p className='text-gray-600 text-base'>
+              Réservez votre Taxi en quelques clics, disponible 24h/24 et 7j/7 pour tous vos déplacements.
             </p>
           </div>
         </section>
 
-        {/* Section 1: Why Choose VTC */}
+        {/* Section 1: Why Choose Taxi */}
         <section className='flex flex-col md:flex-row gap-12 items-center mb-24'>
           <img
-            src="/assets/default/carsharing-4.jpg"
-            alt="VTC Driver and Passenger"
-            className='w-full md:w-1/2 rounded-2xl shadow-lg'
+            src="https://placehold.co/600x400/007bff/ffffff?text=Taxi+Service" // Placeholder image
+            alt="Taxi Driver and Passenger"
+            className='w-full md:w-1/2 rounded-2xl shadow-lg object-cover h-auto'
           />
-          <div className='w-full md:w-1/2 px-4 py-8 md:py-16'>
-            <h2 className='font-bold text-3xl mb-6 text-gray-800'>Pourquoi choisir Kombicar VTC ?</h2>
-            <p className='text-gray-700 leading-relaxed'>
-              Pour vos rendez-vous d'affaires, vos transferts aéroport, ou simplement pour un confort optimal, Kombicar VTC est votre solution. Profitez d'un service personnalisé, discret et ponctuel, adapté à vos besoins.
+          <div className='w-full md:w-1/2 px-4 py-8 md:py-0'> {/* Adjusted padding for md:py-0 */}
+            <h2 className='font-bold text-3xl sm:text-4xl mb-6 text-gray-800'>Pourquoi choisir Kombicar Taxi ?</h2>
+            <p className='text-gray-700 leading-relaxed text-lg mb-8'> {/* Added mb-8 for spacing */}
+              Pour vos rendez-vous d'affaires, vos transferts aéroport, ou simplement pour un confort optimal, Kombicar Taxi est votre solution. Profitez d'un service personnalisé, discret et ponctuel, adapté à vos besoins.
             </p>
-            <br />
             <div className='text-center md:text-left'>
-              <button className='btn-primary px-8 py-3 rounded-full cursor-pointer bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors duration-300'>
-                Réserver un VTC
+              <button className='px-8 py-3 rounded-full cursor-pointer bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors duration-300 transform hover:scale-105'>
+                Réserver un Taxi
               </button>
             </div>
           </div>
         </section>
       </main>
 
-      {/* FAQ Section for VTC */}
-      <section className='py-16 px-4 lg:px-24 bg-gray-50'> {/* Added light background for contrast */}
-        <h1 className='text-center font-bold text-4xl mb-12 text-gray-800'>
-          <FontAwesomeIcon icon={faMapLocationDot} className='text-3xl text-red-500 mr-4' />
-          Questions fréquentes sur nos services VTC
+      {/* FAQ Section for Taxi */}
+      <section className='py-16 px-4 sm:px-6 lg:px-12 xl:px-24 bg-gray-50'>
+        <h1 className='text-center font-bold text-3xl sm:text-4xl lg:text-5xl mb-12 text-gray-800'>
+          <FontAwesomeIcon icon={faTaxi} className='text-3xl text-red-500 mr-4' /> {/* Changed icon to faTaxi */}
+          Questions fréquentes sur nos services Taxi
         </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto'> {/* Added max-width and mx-auto */}
           <div className='p-6 bg-white rounded-lg shadow-md'>
-            <h4 className='font-bold text-xl text-gray-800 mb-2'>Comment réserver un VTC ?</h4>
-            <p className='text-gray-700'>
-              La réservation d'un VTC est simple. Rendez-vous sur notre application mobile ou sur le site web, choisissez votre destination, la date et l'heure, et confirmez votre course en quelques secondes.
+            <h4 className='font-bold text-xl text-gray-800 mb-2'>Comment réserver un Taxi ?</h4>
+            <p className='text-gray-700 text-base'>
+              La réservation d'un Taxi est simple. Rendez-vous sur notre application mobile ou sur le site web, choisissez votre destination, la date et l'heure, et confirmez votre course en quelques secondes.
             </p>
-            <hr className='mt-6 border-t border-gray-200' />
+            {/* <hr className='mt-6 border-t border-gray-200' /> Removed redundant hr */}
           </div>
           <div className='p-6 bg-white rounded-lg shadow-md'>
-            <h4 className='font-bold text-xl text-gray-800 mb-2'>Puis-je commander un VTC à l'avance ?</h4>
-            <p className='text-gray-700'>
-              Oui, tout à fait ! Vous avez la possibilité de réserver votre VTC plusieurs heures ou jours à l'avance. C'est idéal pour vos transferts aéroport ou vos événements spéciaux.
+            <h4 className='font-bold text-xl text-gray-800 mb-2'>Puis-je commander un Taxi à l'avance ?</h4>
+            <p className='text-gray-700 text-base'>
+              Oui, tout à fait ! Vous avez la possibilité de réserver votre Taxi plusieurs heures ou jours à l'avance. C'est idéal pour vos transferts aéroport ou vos événements spéciaux.
             </p>
-            <hr className='mt-6 border-t border-gray-200' />
+            {/* <hr className='mt-6 border-t border-gray-200' /> */}
           </div>
           <div className='p-6 bg-white rounded-lg shadow-md'>
             <h4 className='font-bold text-xl text-gray-800 mb-2'>Quels sont les modes de paiement acceptés ?</h4>
-            <p className='text-gray-700'>
+            <p className='text-gray-700 text-base'>
               Nous acceptons plusieurs modes de paiement sécurisés, y compris les cartes de crédit/débit et les paiements mobiles, pour faciliter toutes vos transactions.
             </p>
-            <hr className='mt-6 border-t border-gray-200' />
+            {/* <hr className='mt-6 border-t border-gray-200' /> */}
           </div>
           <div className='p-6 bg-white rounded-lg shadow-md'>
             <h4 className='font-bold text-xl text-gray-800 mb-2'>Les chauffeurs sont-ils qualifiés ?</h4>
-            <p className='text-gray-700'>
-              Absolument. Tous nos chauffeurs VTC sont des professionnels expérimentés, titulaires des licences nécessaires et soumis à des contrôles de qualité réguliers pour garantir votre satisfaction.
+            <p className='text-gray-700 text-base'>
+              Absolument. Tous nos chauffeurs Taxi sont des professionnels expérimentés, titulaires des licences nécessaires et soumis à des contrôles de qualité réguliers pour garantir votre satisfaction.
             </p>
-            <hr className='mt-6 border-t border-gray-200' />
+            {/* <hr className='mt-6 border-t border-gray-200' /> */}
           </div>
         </div>
       </section>
 
       {/* Mobile App Presentation */}
       <section className="py-16 bg-yellow-400 text-gray-700">
-        <h1 className="text-4xl text-center font-bold mb-4">Simplifiez votre expérience</h1>
-        <h2 className="text-2xl text-center font-semibold mb-12">Téléchargez notre application mobile !</h2>
+        <h1 className="text-3xl sm:text-4xl text-center font-bold mb-4">Simplifiez votre expérience</h1>
+        <h2 className="text-xl sm:text-2xl text-center font-semibold mb-12">Téléchargez notre application mobile !</h2>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 px-4">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 px-4 sm:px-6 lg:px-12 xl:px-24 max-w-7xl mx-auto">
           <div className="flex justify-center">
-            <img src="/assets/default/app-kombicar.png" alt="Kombicar mobile app screenshot" className="w-[280px] md:w-[350px] shadow-xl rounded-lg" />
+            <img src="https://placehold.co/350x600/FFD700/000000?text=Kombicar+App" alt="Kombicar mobile app screenshot" className="w-[280px] md:w-[350px] shadow-xl rounded-lg object-contain" /> {/* Placeholder image */}
           </div>
           <div className='flex flex-col items-center md:items-start gap-4'>
             <a href="https://apps.apple.com/us/app/kombicar/id6468362045" target="_blank" rel="noopener noreferrer">
@@ -232,4 +230,4 @@ const Vtc = () => {
   );
 };
 
-export default Vtc;
+export default Taxi; // Export as Taxi
